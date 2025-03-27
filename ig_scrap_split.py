@@ -21,12 +21,12 @@ async def upload_file(file: UploadFile = File(...)):
         # Eliminar la primera columna
         df = df.iloc[:, 1:]
         
-        # Ordenar la base de datos por la columna 'followers' de mayor a menor
-        df = df.sort_values(by='followers', ascending=False)
+        # Ordenar la base de datos por la columna 'Followers count' de mayor a menor
+        df = df.sort_values(by='Followers count', ascending=False)
         
-        # Filtrar en base a la columna 'followers'
-        df_mano = df[df['followers'] >= 6000]  # Usuarios con >= 6000 seguidores
-        df_ia = df[df['followers'] < 6000]  # Usuarios con < 6000 seguidores
+        # Filtrar en base a la columna 'Followers count'
+        df_mano = df[df['Followers count'] >= 6000]  # Usuarios con >= 6000 seguidores
+        df_ia = df[df['Followers count'] < 6000]  # Usuarios con < 6000 seguidores
         
         # Guardar en CSV
         mano_path = os.path.join(OUTPUT_FOLDER, "BBDD_Mano.csv")
